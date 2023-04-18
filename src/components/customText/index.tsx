@@ -8,6 +8,14 @@ function CustomText({ variant, children }: any) {
         <div className={css.title}>{children}</div>
       </div>
     );
+  } else if (variant === "body") {
+    return (
+      <>
+        <div>
+          <div className={css.body}>{children}</div>
+        </div>
+      </>
+    );
   } else {
     return <></>;
   }
