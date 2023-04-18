@@ -10,10 +10,12 @@ function ScoreComponent() {
   const puntajeMaquina = 1;
 
   return (
-    <div className="scoreCont">
-      <CustomText>Score</CustomText>
-      <CustomText>Tú: {puntajeTu}</CustomText>
-      <CustomText>Máquina: {puntajeMaquina}</CustomText>
+    <div className={css.root}>
+      <CustomText variant="body">Score</CustomText>
+      <CustomText variant="body">Tú: {puntajeTu}</CustomText>
+      <CustomText variant="body">Máquina: {puntajeMaquina}</CustomText>
     </div>
   );
 }
+
+export default ScoreComponent;

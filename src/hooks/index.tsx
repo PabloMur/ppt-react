@@ -1,6 +1,6 @@
-import { useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { useState } from "react";
-import { userChoice } from "../atoms/index";
+import { result, userChoice } from "../atoms/index";
 
 type jugada = "piedra" | "papel" | "tijera";
 type resultado = "gane" | "empate" | "perdi";
@@ -55,4 +55,9 @@ export const useSetUserChoice = () => {
   };
 
   return handleClick;
+};
+
+export const useResultValue = () => {
+  const resultValue = useRecoilValue(result);
+  return resultValue;
 };
