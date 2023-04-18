@@ -57,7 +57,13 @@ export const useSetUserChoice = () => {
   return handleClick;
 };
 
+// Hook para saber el resultado de una partida
 export const useResultValue = () => {
   const resultValue = useRecoilValue(result);
   return resultValue;
+};
+
+export const useUserChoice = () => {
+  const userChoiceValue = useRecoilValue(userChoice);
+  return userChoiceValue;
 };
