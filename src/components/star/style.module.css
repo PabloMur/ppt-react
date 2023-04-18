@@ -1,0 +1,24 @@
+.starEl {
+  height: 200px;
+  width: auto;
+  animation: lower 3s linear infinite;
+  z-index: 2;
+}
+.scoreCont {
+  height: 245px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@keyframes lower {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(5%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}

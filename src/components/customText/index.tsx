@@ -1,12 +1,16 @@
 import React from "react";
 import css from "./styles.module.css";
 
-function CustomText({ variant = "body", children }: any) {
-  return (
-    <div>
-      <div className={variant}>{children}</div>
-    </div>
-  );
+function CustomText({ variant, children }: any) {
+  if (variant === "title") {
+    return (
+      <div>
+        <div className={css.title}>{children}</div>
+      </div>
+    );
+  } else {
+    return <></>;
+  }
 }
 
 export default CustomText;

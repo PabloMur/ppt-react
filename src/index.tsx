@@ -1,13 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import React, { Suspense } from "react";
+import * as ReactDom from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import { AppRoutes } from "./router";
+import { RecoilRoot } from "recoil";
+import { Loader } from "./ui/loader";
 import "./index.css";
-import App from "./App";
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+function App() {
+  return (
+    <Suspense fallback={<Loader />}>
+      <RecoilRoot>
+        <BrowserRouter>
+          <AppRoutes />
+        </BrowserRouter>
+      </RecoilRoot>
+    </Suspense>
+  );
+}
+
+ReactDom.render(<App />, document.getElementById("root"));
