@@ -1,0 +1,39 @@
+.root {
+  margin: 20px auto 0 auto;
+  height: 35vh;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.piedra {
+  background-image: url("../../img/piedra.svg");
+  height: 100%;
+  width: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.papel {
+  background-image: url("../../img/papel.svg");
+  height: 100%;
+  width: 120px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.tijera {
+  background-image: url("../../img/tijera.svg");
+  height: 100%;
+  width: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+div {
+  margin: 0 10px;
+}
