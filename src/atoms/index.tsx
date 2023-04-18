@@ -10,7 +10,7 @@ export const userChoice = atom({
 });
 
 export const pcChoice = atom({
-  key: "pc-choice",
+  key: "pcChoice",
   default: "",
   effects_UNSTABLE: [persistAtom],
 });

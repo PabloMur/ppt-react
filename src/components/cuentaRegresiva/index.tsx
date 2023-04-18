@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
-import { useResultValue, useUserChoice } from "../../hooks";
+import { useUserChoice } from "../../hooks";
 import { useGoTo } from "../../hooks/uiHooks";
-import { userChoice } from "../../atoms";
 
 const CuentaRegresiva = () => {
   const [count, setCount] = useState(3);
-  const result = useResultValue();
-  const useChoice = useUserChoice();
+  const userChoice = useUserChoice();
   const goTo = useGoTo();
 
   useEffect(() => {
@@ -16,7 +14,6 @@ const CuentaRegresiva = () => {
 
     if (count === 0) {
       clearInterval(countdownInterval);
-      console.log("termino el tiempo" + useChoice);
       goTo("/instructions");
     }
 
