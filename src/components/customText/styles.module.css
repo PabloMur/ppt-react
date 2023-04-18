@@ -1,9 +1,9 @@
 .title {
   font-size: 7.5em;
   font-weight: bold;
-  color: #8bc34a;
+  color: #50c878;
   transition: all 3s ease;
-  -webkit-text-stroke: 1px #5b832e;
+  -webkit-text-stroke: 1px #419e60;
 }
 .body {
   font-size: 30px;
