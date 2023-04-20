@@ -6,6 +6,7 @@ import {
   result,
   userChoice,
   userScoreAtom,
+  userChoosed,
 } from "../atoms/index";
 
 type jugada = "piedra" | "papel" | "tijera";
@@ -61,6 +62,17 @@ export const useSetUserChoice = () => {
   };
 
   return handleClick;
+};
+
+//flag para informar que el usuario eligio
+export const useUserChoosed = () => {
+  const flagValue = useRecoilValue(userChoosed);
+  return flagValue;
+};
+
+export const useSetUserChoosed = () => {
+  const flagSetter = useSetRecoilState(userChoosed);
+  return flagSetter;
 };
 
 export const useSetPCChoice = () => {

@@ -8,6 +8,11 @@ export const userChoice = atom({
   default: "none",
 });
 
+export const userChoosed = atom({
+  key: "userChoosed",
+  default: false,
+});
+
 export const pcChoice = atom({
   key: "pcChoice",
   default: "",

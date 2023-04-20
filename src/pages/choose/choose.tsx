@@ -6,16 +6,6 @@ import { useUserChoice } from "../../hooks";
 import { useGoTo } from "../../hooks/uiHooks";
 
 const ChoosePage = () => {
-  const userChoice = useUserChoice();
-  const goTo = useGoTo();
-
-  useEffect(() => {
-    console.log(userChoice);
-    if (userChoice === "none") {
-      goTo("/instructions");
-    }
-  }, [userChoice]);
-
   return (
     <>
       <div className={css.root}>

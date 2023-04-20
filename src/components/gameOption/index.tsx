@@ -2,13 +2,15 @@ import React from "react";
 import tijera from "../../img/tijera.svg";
 import piedra from "../../img/piedra.svg";
 import papel from "../../img/papel.svg";
-import { useSetUserChoice } from "../../hooks/index";
+import { useSetUserChoice, useSetUserChoosed } from "../../hooks/index";
 
 const GameOption = ({ variant }: any) => {
   const setChoice = useSetUserChoice();
+  const setFlagUserChoosed = useSetUserChoosed();
 
   const handleClick = (choice: any) => {
     setChoice(choice);
+    setFlagUserChoosed(true);
   };
 
   if (variant === "piedra") {
