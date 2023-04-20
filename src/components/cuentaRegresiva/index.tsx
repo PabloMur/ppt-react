@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import { useUserChoice } from "../../hooks";
+
 import { useGoTo } from "../../hooks/uiHooks";
 
 const CuentaRegresiva = () => {
   const [count, setCount] = useState(3);
-  const userChoice = useUserChoice();
   const goTo = useGoTo();
 
   useEffect(() => {

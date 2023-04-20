@@ -1,6 +1,12 @@
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { useState } from "react";
-import { result, userChoice } from "../atoms/index";
+import {
+  pcChoice,
+  pcScoreAtom,
+  result,
+  userChoice,
+  userScoreAtom,
+} from "../atoms/index";
 
 type jugada = "piedra" | "papel" | "tijera";
 type resultado = "gane" | "empate" | "perdi";
@@ -57,13 +63,35 @@ export const useSetUserChoice = () => {
   return handleClick;
 };
 
+export const useSetPCChoice = () => {
+  const setPcChoice = useSetRecoilState(pcChoice);
+
+  const handleClick = (choice: jugada) => {
+    setPcChoice(choice);
+  };
+
+  return handleClick;
+};
+
 // Hook para saber el resultado de una partida
 export const useResultValue = () => {
   const resultValue = useRecoilValue(result);
   return resultValue;
 };
 
+//saber la eleccion que hizo el user
 export const useUserChoice = () => {
   const userChoiceValue = useRecoilValue(userChoice);
   return userChoiceValue;
+};
+
+//saber el score actual
+export const useCurrentScore = () => {
+  const userScore = useRecoilValue(userScoreAtom);
+  const pcScore = useRecoilValue(pcScoreAtom);
+  const CurrentScore = {
+    user: userScore,
+    pc: pcScore,
+  };
+  return CurrentScore;
 };

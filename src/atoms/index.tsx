@@ -6,22 +6,20 @@ const { persistAtom } = recoilPersist();
 export const userChoice = atom({
   key: "user-choice",
   default: "none",
-  effects_UNSTABLE: [persistAtom],
 });
 
 export const pcChoice = atom({
   key: "pcChoice",
   default: "",
-  effects_UNSTABLE: [persistAtom],
 });
 
-export const userScore = atom({
+export const userScoreAtom = atom({
   key: "user-score",
   default: 0,
   effects_UNSTABLE: [persistAtom],
 });
 
-export const pcScore = atom({
+export const pcScoreAtom = atom({
   key: "pc-score",
   default: 0,
   effects_UNSTABLE: [persistAtom],
