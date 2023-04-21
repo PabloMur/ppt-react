@@ -23,7 +23,7 @@
 }
 @media screen and (max-width: 600px) {
   .piedra {
-    height: 70%;
+    height: 77%;
   }
 }
 
@@ -37,7 +37,7 @@
 }
 @media screen and (max-width: 600px) {
   .papel {
-    height: 70%;
+    height: 77%;
   }
 }
 
@@ -51,7 +51,7 @@
 }
 @media screen and (max-width: 600px) {
   .tijera {
-    height: 70%;
+    height: 77%;
   }
 }
 
