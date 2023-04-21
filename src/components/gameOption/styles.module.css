@@ -2,3 +2,9 @@ img {
   height: 35vh;
   width: auto;
 }
+
+@media screen and (max-width: 600px) {
+  img {
+    height: 25vh;
+  }
+}

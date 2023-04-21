@@ -5,8 +5,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0;
 }
 
 .hands {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 600px) {
+  .hands {
+    width: 100%;
+  }
 }
