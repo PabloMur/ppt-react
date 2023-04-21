@@ -4,7 +4,7 @@ import { useUserChoosed } from "../../hooks";
 import css from "./styles.module.css";
 
 const CuentaRegresiva = () => {
-  const [count, setCount] = useState(5);
+  const [count, setCount] = useState(3);
   const goTo = useGoTo();
   const flag = useUserChoosed();
 

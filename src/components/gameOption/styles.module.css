@@ -1,6 +1,7 @@
 img {
   height: 35vh;
   width: auto;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {
