@@ -37,7 +37,7 @@ const Star = () => {
         </div>
       </>
     );
-  } else return null;
+  } else return <div />;
 };
 
 export { Star };
