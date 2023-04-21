@@ -9,26 +9,24 @@ const CuentaRegresiva = () => {
   const flag = useUserChoosed();
 
   useEffect(() => {
-    const countdownInterval = setInterval(() => {
-      setCount((prevCount) => prevCount - 1);
-    }, 1000);
-
-    if (count === 0 && !flag) {
-      clearInterval(countdownInterval);
-      goTo("/instructions");
-    } else if (flag) {
-      clearInterval(countdownInterval);
+    //const countdownInterval = setInterval(() => {
+    //  setCount((prevCount) => prevCount - 1);
+    // }, 1000);
+    // if (count === 0 && !flag) {
+    //   clearInterval(countdownInterval);
+    //   goTo("/instructions");
+    //  } else if (flag) {
+    //clearInterval(countdownInterval);
+    //    goTo("/comparition");
+    //   }
+    //return () => clearInterval(countdownInterval);
+    if (flag) {
       goTo("/comparition");
     }
+  }, [flag]);
 
-    return () => clearInterval(countdownInterval);
-  }, [count]);
-
-  return (
-    <div className={css.contador}>
-      {count === 0 ? "¡Tiempo acabado!" : count}
-    </div>
-  );
+  return <div className={css.contador}></div>;
+  //{count === 0 ? "¡Tiempo acabado!" : count}
 };
 
 export { CuentaRegresiva };
