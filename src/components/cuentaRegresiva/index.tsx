@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useGoTo } from "../../hooks/uiHooks";
 import { useUserChoosed } from "../../hooks";
+import css from "./styles.module.css";
 
 const CuentaRegresiva = () => {
   const [count, setCount] = useState(3);
@@ -24,7 +25,9 @@ const CuentaRegresiva = () => {
   }, [count]);
 
   return (
-    <div>{count === 0 ? "¡Tiempo acabado!" : `Quedan ${count} segundos`}</div>
+    <div className={css.contador}>
+      {count === 0 ? "¡Tiempo acabado!" : count}
+    </div>
   );
 };
 

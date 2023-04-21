@@ -5,7 +5,7 @@ const ComparitionTimmer = () => {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       goTo("/result");
-    }, 3000);
+    }, 2000);
 
     return () => {
       clearTimeout(timeoutId);

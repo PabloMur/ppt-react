@@ -3,6 +3,7 @@ import tijera from "../../img/tijera.svg";
 import piedra from "../../img/piedra.svg";
 import papel from "../../img/papel.svg";
 import { useSetUserChoice, useSetUserChoosed } from "../../hooks/index";
+import "./styles.module.css";
 
 const GameOption = ({ variant }: any) => {
   const setChoice = useSetUserChoice();
