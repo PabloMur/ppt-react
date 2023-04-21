@@ -4,29 +4,29 @@ import { useUserChoosed } from "../../hooks";
 import css from "./styles.module.css";
 
 const CuentaRegresiva = () => {
-  const [count, setCount] = useState(3);
+  const [count, setCount] = useState(5);
   const goTo = useGoTo();
   const flag = useUserChoosed();
 
   useEffect(() => {
-    //const countdownInterval = setInterval(() => {
-    //  setCount((prevCount) => prevCount - 1);
-    // }, 1000);
-    // if (count === 0 && !flag) {
-    //   clearInterval(countdownInterval);
-    //   goTo("/instructions");
-    //  } else if (flag) {
-    //clearInterval(countdownInterval);
-    //    goTo("/comparition");
-    //   }
-    //return () => clearInterval(countdownInterval);
-    if (flag) {
+    const countdownInterval = setInterval(() => {
+      setCount((prevCount) => prevCount - 1);
+    }, 1000);
+    if (count === 0 && !flag) {
+      clearInterval(countdownInterval);
+      goTo("/instructions");
+    } else if (flag) {
+      clearInterval(countdownInterval);
       goTo("/comparition");
     }
-  }, [flag]);
+    return () => clearInterval(countdownInterval);
+  }, [count]);
 
-  return <div className={css.contador}></div>;
-  //{count === 0 ? "¡Tiempo acabado!" : count}
+  return (
+    <div className={css.contador}>
+      {count === 0 ? "¡Tiempo acabado!" : count}
+    </div>
+  );
 };
 
 export { CuentaRegresiva };
