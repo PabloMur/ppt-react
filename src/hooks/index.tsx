@@ -8,11 +8,11 @@ import {
   userScoreAtom,
   userChoosed,
 } from "../atoms/index";
-import { log } from "console";
 
 type jugada = "piedra" | "papel" | "tijera";
 
 export function useJuego() {
+  const resulSetter = useSetResult();
   function jugar(miJugada: any, PCjuagada: any) {
     const gane = [
       miJugada === "piedra" && PCjuagada === "tijera",
@@ -27,28 +27,30 @@ export function useJuego() {
     ].includes(true);
 
     if (gane) {
-      //setResult ("ganaste")
-      console.log("Ganaste");
+      resulSetter("ganaste");
     } else if (perdi) {
-      //setResult("perdiste");
-      console.log("Perdiste");
+      resulSetter("perdiste");
     } else {
-      //setResult("empate");
-      console.log("Empataste");
+      resulSetter("empataste");
     }
   }
   return jugar;
 }
 
+export function useResetGame() {
+  const userChoiceSetter = useSetUserChoice();
+  const pcChoiceSetter = useResetPCChoice();
+  function resetGame() {
+    userChoiceSetter("");
+    pcChoiceSetter("");
+  }
+  return resetGame;
+}
+
 // Hook para que el user setee en el state la mano que ha elegido
 export const useSetUserChoice = () => {
   const setMyChoice = useSetRecoilState(userChoice);
-
-  const handleClick = (choice: jugada) => {
-    setMyChoice(choice);
-  };
-
-  return handleClick;
+  return setMyChoice;
 };
 
 //flag para informar que el usuario eligio
@@ -75,9 +77,19 @@ export const useSetPCChoice = () => {
   return handleClick;
 };
 
+export const useResetPCChoice = () => {
+  const resetter = useSetRecoilState(pcChoice);
+  return resetter;
+};
+
 export const usePCChoice = () => {
   const pcChoiceVal = useRecoilValue(pcChoice);
   return pcChoiceVal;
+};
+
+export const useSetResult = () => {
+  const setter = useSetRecoilState(result);
+  return setter;
 };
 
 // Hook para saber el resultado de una partida
