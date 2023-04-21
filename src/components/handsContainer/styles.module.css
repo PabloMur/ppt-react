@@ -21,6 +21,11 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+@media screen and (max-width: 600px) {
+  .piedra {
+    height: 70%;
+  }
+}
 
 .papel {
   background-image: url("../../img/papel.svg");
@@ -30,6 +35,11 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+@media screen and (max-width: 600px) {
+  .papel {
+    height: 70%;
+  }
+}
 
 .tijera {
   background-image: url("../../img/tijera.svg");
@@ -38,6 +48,11 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+@media screen and (max-width: 600px) {
+  .tijera {
+    height: 70%;
+  }
 }
 
 div {
