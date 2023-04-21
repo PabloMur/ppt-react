@@ -1,5 +1,5 @@
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { useState } from "react";
+
 import {
   pcChoice,
   pcScoreAtom,
@@ -8,19 +8,12 @@ import {
   userScoreAtom,
   userChoosed,
 } from "../atoms/index";
+import { log } from "console";
 
 type jugada = "piedra" | "papel" | "tijera";
-type resultado = "gane" | "empate" | "perdi";
 
 export function useJuego() {
-  const [score, setScore] = useState({ tu: 0, maquina: 0 });
-  const [result, setResult] = useState(null);
-
-  function jugar(miJugada: jugada) {
-    const jugadasPosibles = ["piedra", "papel", "tijera"];
-    const PCjuagada =
-      jugadasPosibles[Math.floor(Math.random() * jugadasPosibles.length)];
-
+  function jugar(miJugada: any, PCjuagada: any) {
     const gane = [
       miJugada === "piedra" && PCjuagada === "tijera",
       miJugada === "papel" && PCjuagada === "piedra",
@@ -34,23 +27,17 @@ export function useJuego() {
     ].includes(true);
 
     if (gane) {
-      setScore((prevScore) => ({
-        tu: prevScore.tu + 1,
-        maquina: prevScore.maquina,
-      }));
-      //setResult("gane");
+      //setResult ("ganaste")
+      console.log("Ganaste");
     } else if (perdi) {
-      setScore((prevScore) => ({
-        tu: prevScore.tu,
-        maquina: prevScore.maquina + 1,
-      }));
-      //setResult("perdi");
+      //setResult("perdiste");
+      console.log("Perdiste");
     } else {
       //setResult("empate");
+      console.log("Empataste");
     }
   }
-
-  return [score, result, jugar];
+  return jugar;
 }
 
 // Hook para que el user setee en el state la mano que ha elegido
@@ -78,11 +65,19 @@ export const useSetUserChoosed = () => {
 export const useSetPCChoice = () => {
   const setPcChoice = useSetRecoilState(pcChoice);
 
-  const handleClick = (choice: jugada) => {
-    setPcChoice(choice);
+  const handleClick = () => {
+    const jugadasPosibles = ["piedra", "papel", "tijera"];
+    const PCjuagada =
+      jugadasPosibles[Math.floor(Math.random() * jugadasPosibles.length)];
+    setPcChoice(PCjuagada);
   };
 
   return handleClick;
+};
+
+export const usePCChoice = () => {
+  const pcChoiceVal = useRecoilValue(pcChoice);
+  return pcChoiceVal;
 };
 
 // Hook para saber el resultado de una partida
