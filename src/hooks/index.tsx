@@ -1,4 +1,5 @@
 import { useRecoilValue, useSetRecoilState } from "recoil";
+import seedrandom from "seedrandom";
 
 import {
   pcChoice,
@@ -8,6 +9,15 @@ import {
   userScoreAtom,
   userChoosed,
 } from "../atoms/index";
+
+const generateSeed = () => {
+  const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+  let seed = "";
+  for (let i = 0; i < 16; i++) {
+    seed += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return seed;
+};
 
 export function useJuego() {
   const resulSetter = useSetResult();
@@ -73,8 +83,11 @@ export const useSetPCChoice = () => {
 
   const handleClick = () => {
     const jugadasPosibles = ["piedra", "papel", "tijera"];
-    const PCjuagada =
-      jugadasPosibles[Math.floor(Math.random() * jugadasPosibles.length)];
+    const seed = generateSeed();
+    const random = seedrandom(seed);
+    const numeroRandom = Math.floor(random() * jugadasPosibles.length);
+    console.log(numeroRandom);
+    const PCjuagada = jugadasPosibles[numeroRandom];
     setPcChoice(PCjuagada);
   };
 
