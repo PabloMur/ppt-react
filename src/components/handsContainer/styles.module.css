@@ -7,6 +7,12 @@
   align-items: center;
 }
 
+@media screen and (max-width: 600px) {
+  .root {
+    width: 100%;
+  }
+}
+
 .piedra {
   background-image: url("../../img/piedra.svg");
   height: 100%;

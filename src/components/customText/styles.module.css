@@ -5,6 +5,13 @@
   transition: all 3s ease;
   -webkit-text-stroke: 1px #001997;
 }
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 3.5em;
+    text-align: center;
+  }
+}
+
 .body {
   font-size: 45px;
   max-width: 600px;
