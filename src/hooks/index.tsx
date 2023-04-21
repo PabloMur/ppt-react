@@ -9,10 +9,10 @@ import {
   userChoosed,
 } from "../atoms/index";
 
-type jugada = "piedra" | "papel" | "tijera";
-
 export function useJuego() {
   const resulSetter = useSetResult();
+  const userScoreSetter = useSetUserWon();
+  const pcScoreSetter = useSetPCWon();
   function jugar(miJugada: any, PCjuagada: any) {
     const gane = [
       miJugada === "piedra" && PCjuagada === "tijera",
@@ -28,8 +28,10 @@ export function useJuego() {
 
     if (gane) {
       resulSetter("ganaste");
+      userScoreSetter();
     } else if (perdi) {
       resulSetter("perdiste");
+      pcScoreSetter();
     } else {
       resulSetter("empataste");
     }
@@ -40,9 +42,11 @@ export function useJuego() {
 export function useResetGame() {
   const userChoiceSetter = useSetUserChoice();
   const pcChoiceSetter = useResetPCChoice();
+  const resetFlagUserChoosed = useSetUserChoosed();
   function resetGame() {
     userChoiceSetter("");
-    pcChoiceSetter("");
+    resetFlagUserChoosed(false);
+    pcChoiceSetter();
   }
   return resetGame;
 }
@@ -79,7 +83,10 @@ export const useSetPCChoice = () => {
 
 export const useResetPCChoice = () => {
   const resetter = useSetRecoilState(pcChoice);
-  return resetter;
+  function makeReset() {
+    resetter("");
+  }
+  return makeReset;
 };
 
 export const usePCChoice = () => {
@@ -113,4 +120,22 @@ export const useCurrentScore = () => {
     pc: pcScore,
   };
   return CurrentScore;
+};
+
+export const useSetUserWon = () => {
+  const userScore = useRecoilValue(userScoreAtom);
+  const userScoreSetter = useSetRecoilState(userScoreAtom);
+  function increeseUserScore() {
+    userScoreSetter(userScore + 1);
+  }
+  return increeseUserScore;
+};
+
+export const useSetPCWon = () => {
+  const pcScore = useRecoilValue(pcScoreAtom);
+  const pcScoreSetter = useSetRecoilState(pcScoreAtom);
+  function increesePCScore() {
+    pcScoreSetter(pcScore + 1);
+  }
+  return increesePCScore;
 };

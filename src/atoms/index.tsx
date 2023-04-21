@@ -32,6 +32,6 @@ export const pcScoreAtom = atom({
 
 export const result = atom({
   key: "result",
-  default: "perdiste",
+  default: "",
   effects_UNSTABLE: [persistAtom],
 });
