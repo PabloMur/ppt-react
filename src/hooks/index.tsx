@@ -135,6 +135,16 @@ export const useCurrentScore = () => {
   return CurrentScore;
 };
 
+export const useResetScore = () => {
+  const userScoreSetter = useSetRecoilState(userScoreAtom);
+  const pcScoreSetter = useSetRecoilState(pcScoreAtom);
+  function reset() {
+    userScoreSetter(0);
+    pcScoreSetter(0);
+  }
+  return reset;
+};
+
 export const useSetUserWon = () => {
   const userScore = useRecoilValue(userScoreAtom);
   const userScoreSetter = useSetRecoilState(userScoreAtom);

@@ -1,5 +1,5 @@
 .root {
-  height: 30vh;
+  min-height: 30vh;
   width: 90%;
   display: flex;
   margin: 20px auto;
@@ -9,7 +9,7 @@
   border-radius: 5px;
   background-color: white;
   border: 5px solid black;
-  padding: 20px;
+  padding: 20px 0;
 }
 
 @media screen and (min-width: 960px) {
@@ -17,4 +17,12 @@
     margin: 30px auto;
     max-width: 585px;
   }
+}
+
+.container {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
